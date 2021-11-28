@@ -1,5 +1,6 @@
-### EasyInvoice
-# MERN Stack Invoicing Application
+![Asset 1@300x-100](https://user-images.githubusercontent.com/63586628/143779242-aceb886b-e682-4d46-9f37-d70d16e18a45.jpg)
+# MERN
+ Stack Invoicing Application
 Built with the MERN stack (MongoDB, Express, React and NodeJS).
 
 ## Technologies used
