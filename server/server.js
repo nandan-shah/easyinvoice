@@ -1,7 +1,6 @@
 import express from 'express';
 import connectDB from './config/db.js';
-import register from './routes/api/register.js';
-import login from './routes/api/auth.js';
+import auth from './routes/api/auth.js';
 const app = express();
 
 //connect database
@@ -13,8 +12,7 @@ app.get('/', (req, res) => {
   res.send('start');
 });
 
-app.use('/api/auth/register', register);
-app.use('/api/auth/login', login);
+app.use('/api/auth', auth);
 
 const PORT = process.env.PORT || 5000;
 
