@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import {
-  CssBaseline,
   Drawer,
   Box,
   AppBar,
@@ -25,7 +24,7 @@ import { sideNavItems } from './SideNav';
 import Summary from './Summary';
 import Invoice from './Invoices';
 import Copyright from '../layout/Copyright';
-
+import logo from '../../assets/images/Invoice_L.png';
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -102,6 +101,9 @@ const useStyles = makeStyles((theme) => ({
     overflow: 'auto',
     flexDirection: 'column',
   },
+  logo: {
+    maxWidth: 170,
+  },
   fixedHeight: {
     height: 200,
   },
@@ -130,7 +132,6 @@ export default function Dashboard() {
 
   return (
     <div className={classes.root}>
-      <CssBaseline />
       <AppBar
         position='absolute'
         className={clsx(classes.appBar, open && classes.appBarShift)}
@@ -185,6 +186,9 @@ export default function Dashboard() {
         open={open}
       >
         <div className={classes.toolbarIcon}>
+          {open && (
+            <img src={logo} alt='easy-invoice' className={classes.logo} />
+          )}
           <IconButton onClick={handleDrawerClose}>
             <ChevronLeftIcon />
           </IconButton>

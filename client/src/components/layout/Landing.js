@@ -15,21 +15,25 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-between',
     [theme.breakpoints.down('sm')]: {
       justifyContent: 'center',
+      margin: '2rem .5rem',
     },
     alignItems: 'center',
-    margin: '2rem 5rem',
+    margin: '2rem 3rem 0 5rem',
     height: '50vh',
   },
   animation: {
     marginTop: '13rem',
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       display: 'none',
     },
   },
   content: {
     width: '33vw',
+    [theme.breakpoints.down('md')]: {
+      width: '50vw',
+    },
     [theme.breakpoints.down('sm')]: {
-      width: '75vw',
+      width: '90vw',
     },
     marginTop: '10rem',
   },
@@ -52,31 +56,33 @@ const Landing = () => {
     <div
       className={classes.Landing}
       style={{
-        background: `url(${Image})  no-repeat fixed center `,
+        background: `url(${Image})  no-repeat fixed left `,
         width: '100vw',
         height: '100vh',
       }}
     >
-      <Navbar />
-      <div className={classes.container}>
-        <div className={classes.content} align='left'>
-          <Typography variant='subtitle1' component='p'>
-            E-Invoice Software.
-          </Typography>
-          <Typography variant='h3' component='h5' gutterBottom>
-            Everything you need to manage your business invoice.
-          </Typography>
-          <Typography variant='body1' component='h2' gutterBottom>
-            Manage your invoice from creation to payment with Upflow, you'll
-            collect 100% of your turnover.
-          </Typography>
-          <br />
-          <Button variant='outlined' color='primary' href='/auth'>
-            Start Free
-          </Button>
+      <>
+        <Navbar />
+        <div className={classes.container}>
+          <div className={classes.content} align='left'>
+            <Typography variant='subtitle1' component='p'>
+              E-Invoice Software.
+            </Typography>
+            <Typography variant='h3' component='h5' gutterBottom>
+              Everything you need to manage your business invoice.
+            </Typography>
+            <Typography variant='body1' component='h2' gutterBottom>
+              Manage your invoice from creation to payment with Upflow, you'll
+              collect 100% of your turnover.
+            </Typography>
+            <br />
+            <Button variant='outlined' color='primary' href='/auth'>
+              Start Free
+            </Button>
+          </div>
+          <div className={classes.animation} ref={container}></div>
         </div>
-        <div className={classes.animation} ref={container}></div>
-      </div>
+      </>
     </div>
   );
 };

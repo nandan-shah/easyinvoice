@@ -54,7 +54,7 @@ export const sideNavItems = (
         <ListItemIcon>
           <SettingsIcon />
         </ListItemIcon>
-        <ListItemText primary='Setting' />
+        <ListItemText primary='Settings' />
       </ListItem>
     </div>
   </div>
