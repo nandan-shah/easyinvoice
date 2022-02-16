@@ -1,4 +1,5 @@
 import express from 'express';
+import fileUpload from 'express-fileupload';
 import connectDB from './config/db.js';
 import auth from './routes/api/auth.js';
 import profile from './routes/api/profile.js';
@@ -8,7 +9,9 @@ const app = express();
 //connect database
 connectDB();
 
-app.use(express.json({ extended: false }));
+app.use(express.json({ extended: false, limit: '50mb' }));
+app.use(express.urlencoded({ limit: '50mb', extended: true }));
+app.use(fileUpload({ useTempFiles: true }));
 
 app.get('/', (req, res) => {
   res.send('start');

@@ -1,5 +1,7 @@
 import express from 'express';
 import { check, validationResult } from 'express-validator';
+import cloudinary from 'cloudinary';
+import config from 'config';
 import Profile from '../../models/Profile.js';
 const router = express.Router();
 import auth from '../../middleware/auth.js';
@@ -61,5 +63,33 @@ router.post(
     }
   }
 );
+
+// @route     post  api/profile/upload-logo
+// desc         upload user image
+// @access  private
+router.post('/upload-logo', auth, async (req, res) => {
+  cloudinary.config({
+    cloud_name: config.get('cloudinary_cloud_name'),
+    api_key: config.get('cloudinary_api_key'),
+    api_secret: config.get('cloudinary_api_secret'),
+  });
+  const userId = req.user.id;
+  const imageFile = req.files.data;
+  // console.log(req.files.data);
+  try {
+    const uploadResponse = await cloudinary.v2.uploader.upload(
+      imageFile.tempFilePath,
+      {
+        public_id: userId,
+        folder: 'easyInvoice',
+      }
+    );
+    // console.log(uploadResponse);
+    res.json(uploadResponse.secure_url);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send('server error');
+  }
+});
 
 export default router;
