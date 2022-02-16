@@ -38,40 +38,58 @@ router.get('/:id', auth, async (req, res) => {
 // @route     post  api/client
 // desc         creat new client
 // @access  private
-router.post('/', auth, async (req, res) => {
-  try {
-    const userId = req.user.id;
-    const client = req.body;
-    const newClient = new Client({ ...client, user: userId });
-    await newClient.save();
-    res.status(201).json(newClient);
-  } catch (error) {
-    console.error(error.message);
-    res.status(500).send('server error');
+router.post(
+  '/',
+  check('email', 'Email is require').isEmail(),
+  auth,
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+    try {
+      const userId = req.user.id;
+      const client = req.body;
+      const newClient = new Client({ ...client, user: userId });
+      await newClient.save();
+      res.status(201).json(newClient);
+    } catch (error) {
+      console.error(error.message);
+      res.status(500).send('server error');
+    }
   }
-});
+);
 
 // @route     post  api/client/:id
 // desc         update a client
 // @access  private
-router.post('/:id', auth, async (req, res) => {
-  try {
-    const userId = req.user.id;
-    const id = req.params.id;
-    const client = req.body;
-    if (!mongoose.Types.ObjectId.isValid(id))
-      return res.status(404).send('No Client with that id');
-    const updatedClient = await Client.findByIdAndUpdate(
-      id,
-      { ...client, _id: id, user: userId },
-      { new: true }
-    );
-    res.json(updatedClient);
-  } catch (error) {
-    console.error(error.message);
-    res.status(500).send('server error');
+router.post(
+  '/:id',
+  check('email', 'Email is require').isEmail(),
+  auth,
+  async (req, res) => {
+    try {
+      const errors = validationResult(req);
+      if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() });
+      }
+      const userId = req.user.id;
+      const id = req.params.id;
+      const client = req.body;
+      if (!mongoose.Types.ObjectId.isValid(id))
+        return res.status(404).send('No Client with that id');
+      const updatedClient = await Client.findByIdAndUpdate(
+        id,
+        { ...client, _id: id, user: userId },
+        { new: true }
+      );
+      res.json(updatedClient);
+    } catch (error) {
+      console.error(error.message);
+      res.status(500).send('server error');
+    }
   }
-});
+);
 
 // @route     delete  api/client/:id
 // desc         delete a client by id
