@@ -10,7 +10,7 @@ const ProfileSchema = new mongoose.Schema({
   website: {
     type: String,
   },
-  Number: {
+  number: {
     type: String,
   },
   location: {
@@ -20,5 +20,6 @@ const ProfileSchema = new mongoose.Schema({
     type: String,
   },
 });
+const Profile = mongoose.model('profile', ProfileSchema);
 
-export default Profile == mongoose.model('user', ProfileSchema);
+export default Profile;
