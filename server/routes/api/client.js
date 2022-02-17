@@ -12,7 +12,7 @@ router.get('/', auth, async (req, res) => {
   try {
     const userId = req.user.id;
     const clients = await Client.find({ user: userId });
-    res.json(clients);
+    res.status(200).json(clients);
   } catch (error) {
     console.error(error.message);
     res.status(500).send('server error');

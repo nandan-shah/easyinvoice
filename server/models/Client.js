@@ -4,15 +4,12 @@ const ClientSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'user',
   },
-  client: {
-    type: String,
-  },
+  client: String,
   email: {
     type: String,
+    required: true,
   },
-  address: {
-    type: String,
-  },
+  address: String,
   date: {
     type: 'Date',
     default: Date.now,

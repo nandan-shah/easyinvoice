@@ -4,21 +4,11 @@ const ProfileSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'user',
   },
-  businessName: {
-    type: String,
-  },
-  website: {
-    type: String,
-  },
-  number: {
-    type: String,
-  },
-  location: {
-    type: String,
-  },
-  logo: {
-    type: String,
-  },
+  businessName: String,
+  website: String,
+  number: String,
+  location: String,
+  logo: String,
 });
 const Profile = mongoose.model('profile', ProfileSchema);
 
