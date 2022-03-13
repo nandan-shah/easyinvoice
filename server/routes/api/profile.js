@@ -2,6 +2,7 @@ import express from 'express';
 import { check, validationResult } from 'express-validator';
 import cloudinary from 'cloudinary';
 import config from 'config';
+import Fs from 'fs';
 import Profile from '../../models/Profile.js';
 const router = express.Router();
 import auth from '../../middleware/auth.js';
@@ -89,6 +90,8 @@ router.post('/upload-logo', auth, async (req, res) => {
   } catch (error) {
     console.error(error.message);
     res.status(500).send('server error');
+  } finally {
+    Fs.unlinkSync(imageFile.tempFilePath);
   }
 });
 

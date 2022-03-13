@@ -5,6 +5,7 @@ import auth from './routes/api/auth.js';
 import profile from './routes/api/profile.js';
 import client from './routes/api/client.js';
 import invoice from './routes/api/invoice.js';
+import pdf from './routes/api/pdf.js';
 const app = express();
 
 //connect database
@@ -22,6 +23,7 @@ app.use('/api/auth', auth);
 app.use('/api/profile', profile);
 app.use('/api/client', client);
 app.use('/api/invoice', invoice);
+app.use('/pdf', pdf);
 
 const PORT = process.env.PORT || 5000;
 
