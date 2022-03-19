@@ -10,35 +10,47 @@ const router = express.Router();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-// const transporter = nodemailer.createTransport({
-//   // service: config.get('service'),
-//   // host: 'smtp-mail.outlook.com',
-//   port: 587,
-//   secure: false,
-//   auth: {
-//     user: 'easy_invoice@outlook.com',
-//     pass: ''
-//   },
-// });
-
-// var options = { format: 'A4' };
-
-// router.post('/send', (req, res) => {
-//   const { email, company } = req.body;
-//   const mailOptions = {
-//     from: 'easy_invoice@outlook.com',
-//     to: 'nandan2583@gmail.com',
-//     subject: 'Invoice',
-//     text: 'pls find invoice attached',
-//   };
-//   transporter.sendMail(mailOptions, function (err, info) {
-//     if (err) {
-//       console.log(err);
-//       return;
-//     }
-//     res.send(info.response);
-//   });
-// });
+router.post('/send', auth, async (req, res) => {
+  const userId = req.user.id;
+  const { email, clientId } = req.body;
+  const transporter = await nodemailer.createTransport({
+    service: 'Outlook365',
+    host: 'smtp.office365.com',
+    port: '587',
+    tls: {
+      ciphers: 'SSLv3',
+      rejectUnauthorized: false,
+    },
+    auth: {
+      user: 'easy_invoice@outlook.com',
+      pass: config.get('PASS'),
+    },
+  });
+  try {
+    const mailOptions = {
+      from: `easy_invoice@outlook.com`,
+      to: `${email}`,
+      subject: 'A Invoice ',
+      html: `<h1>html file</h1>`, // html body
+      attachments: [
+        {
+          filename: 'invoice.pdf',
+          path: `${__dirname}/invoice.pdf`,
+        },
+      ],
+    };
+    await pdf
+      .create(invoiceTemplate(req.body), {})
+      .toFile(`${__dirname}/invoice.pdf`, function (err, result) {
+        if (err) return console.log(err);
+      });
+    const info = await transporter.sendMail(mailOptions);
+    res.send(info.response);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send('server error');
+  }
+});
 
 router.post('/create', auth, async (req, res) => {
   try {

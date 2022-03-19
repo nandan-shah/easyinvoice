@@ -172,7 +172,7 @@ export default function ({
   
           <tr>
               <td>Balance</td>
-              <td ><h3 style="line-height: 5px; text-align: center">₹ 00</h3></td>
+              <td ><h3 style="line-height: 5px; text-align: center">₹ 100</h3></td>
             </tr>
   
         </table>
@@ -180,7 +180,7 @@ export default function ({
   <div>
       <hr>
       <h4>Note</h4>
-      <p>paymest notes </p>
+      <p>payment notes </p>
   </div>
   </body>
   </html>
