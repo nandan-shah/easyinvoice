@@ -27,3 +27,44 @@ EasyInvoice was created using the following technologies.
 
 #### Database
 MongoDB (MongoDB Atlas)
+
+## Configuration and Setup
+
+### 1\. Clone this Repository
+
+```
+git clone https://github.com/
+```
+
+### 2\. Navigate to the directory
+
+```
+cd client
+```
+
+### 3\. Install dependencies
+
+```
+npm install
+```
+### 4\. Create default.js 
+``` 
+
+```
+
+### 5\. Run
+
+```
+npm start
+```
+
+### 6\. ✨ Enjoy
+
+
+## Comment
+We intend to keep adding more features to this application, so if you like it, please give it a star, that will encourage us to 
+to keep improving the project.
+
+## Author
+- [Nandan Kumar](https://github.com/nandan-shah)
+- [Sugyanee Sahu](https://github.com/Sugyanee)
