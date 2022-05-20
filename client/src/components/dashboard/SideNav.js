@@ -18,25 +18,25 @@ export const sideNavItems = (
     }}
   >
     <div>
-      <ListItem button>
+      <ListItem button component='a' href='/dashboard'>
         <ListItemIcon>
           <DashboardIcon />
         </ListItemIcon>
         <ListItemText primary='Dashboard' />
       </ListItem>
-      <ListItem button>
+      <ListItem button component='a' href='/create-invoice'>
         <ListItemIcon>
           <CreateIcon />
         </ListItemIcon>
         <ListItemText primary='Creat Invoice' />
       </ListItem>
-      <ListItem button>
+      <ListItem button component='a' href='/invoices'>
         <ListItemIcon>
           <LayersIcon />
         </ListItemIcon>
         <ListItemText primary='Invoices' />
       </ListItem>
-      <ListItem button>
+      <ListItem button component='a' href='/clients'>
         <ListItemIcon>
           <PeopleIcon />
         </ListItemIcon>
@@ -50,7 +50,7 @@ export const sideNavItems = (
       </ListItem>
     </div>
     <div>
-      <ListItem button>
+      <ListItem button component='a' href='/settings'>
         <ListItemIcon>
           <SettingsIcon />
         </ListItemIcon>
