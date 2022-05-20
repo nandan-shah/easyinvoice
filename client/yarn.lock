@@ -4711,8 +4711,6 @@
   "resolved" "https://registry.npmjs.org/escape-string-regexp/-/escape-string-regexp-2.0.0.tgz"
   "version" "2.0.0"
 
-"escodegen@^1.14.1":
-
 "eslint-config-react-app@^6.0.0":
   "integrity" "sha512-bpoAAC+YRfzq0dsTk+6v9aHm/uqnDwayNAXleMypGl6CpxI9oXXscVHo4fk3eJPIn+rsbtNetB4r/ZIidFIE8A=="
   "resolved" "https://registry.npmjs.org/eslint-config-react-app/-/eslint-config-react-app-6.0.0.tgz"
