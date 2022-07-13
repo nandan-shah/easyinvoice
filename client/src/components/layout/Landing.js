@@ -72,8 +72,8 @@ const Landing = () => {
               Everything you need to manage your business invoice.
             </Typography>
             <Typography variant="body1" component="h2" gutterBottom>
-              Manage your invoice from creation to payment with Upflow, you'll
-              collect 100% of your turnover.
+              Manage your invoice from creation to payment with EasyInvoice,
+              you'll collect 100% of your turnover.
             </Typography>
             <br />
             <Button variant="outlined" color="primary" href="/auth">

@@ -1,9 +1,9 @@
-import React from 'react';
-import Appbar from './Appbar';
+import React from "react";
+import Appbar from "./Appbar";
 const CreateInvoice = () => {
   return (
     <div>
-      <Appbar />
+      <Appbar heading="Create Invoice" />
     </div>
   );
 };
