@@ -1,13 +1,13 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import { Box, Container, Grid, Paper } from "@material-ui/core";
-import Invoice from "./Invoices";
-import Copyright from "../layout/Copyright";
-import AppBar from "./Appbar";
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import { Box, Container, Grid, Paper } from '@material-ui/core';
+import Customers from './Customers';
+import Copyright from '../layout/Copyright';
+import AppBar from './Appbar';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: "flex",
+    display: 'flex',
   },
   toolbar: {
     paddingRight: 24, // keep right padding when drawer closed
@@ -15,8 +15,8 @@ const useStyles = makeStyles((theme) => ({
   appBarSpacer: theme.mixins.toolbar,
   content: {
     flexGrow: 1,
-    height: "100vh",
-    overflow: "auto",
+    height: '100vh',
+    overflow: 'auto',
   },
   container: {
     paddingTop: theme.spacing(4),
@@ -24,9 +24,9 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     padding: theme.spacing(2),
-    display: "flex",
-    overflow: "auto",
-    flexDirection: "column",
+    display: 'flex',
+    overflow: 'auto',
+    flexDirection: 'column',
   },
 }));
 
@@ -34,15 +34,15 @@ const ClientList = () => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <AppBar heading="Customers" />
+      <AppBar heading='Customers' />
 
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
-        <Container maxWidth="lg" className={classes.container}>
-          {/* Invoices */}
+        <Container maxWidth='lg' className={classes.container}>
+          {/* Customers */}
           <Grid item xs={12}>
             <Paper className={classes.paper}>
-              <Invoice />
+              <Customers />
             </Paper>
           </Grid>
 

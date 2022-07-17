@@ -55,6 +55,7 @@ const Profile = () => {
             <Grid item xs={12}>
               <TextField
                 name='businessName'
+                value='easyinvoice'
                 required
                 fullWidth
                 variant='outlined'
@@ -70,6 +71,7 @@ const Profile = () => {
                 variant='outlined'
                 id='website'
                 label='Website'
+                value='www.easyinvoice.software'
               />
             </Grid>
             <Grid item xs={12}>
@@ -80,6 +82,7 @@ const Profile = () => {
                 variant='outlined'
                 id='number'
                 label='Number'
+                value='984273273'
               />
             </Grid>
             <Grid item xs={12}>
@@ -92,6 +95,7 @@ const Profile = () => {
                 variant='outlined'
                 id='address'
                 label='Contact Address'
+                value='Street:  Sh No.8, 2/8, Mahajan Galli, ZaveriBzr, Chira, BazarCity:Mumbai State/province/area: Maharashtra'
               />
             </Grid>
           </Grid>

@@ -1,15 +1,15 @@
-import React from "react";
-import clsx from "clsx";
-import { makeStyles } from "@material-ui/core/styles";
-import { Box, Container, Grid, Paper } from "@material-ui/core";
-import Summary from "./Summary";
-import Invoice from "./Invoices";
-import Copyright from "../layout/Copyright";
-import AppBar from "./Appbar";
+import React from 'react';
+import clsx from 'clsx';
+import { makeStyles } from '@material-ui/core/styles';
+import { Box, Container, Grid, Paper } from '@material-ui/core';
+import Summary from './Summary';
+import Invoice from './Invoices';
+import Copyright from '../layout/Copyright';
+import AppBar from './Appbar';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: "flex",
+    display: 'flex',
   },
   toolbar: {
     paddingRight: 24, // keep right padding when drawer closed
@@ -17,8 +17,8 @@ const useStyles = makeStyles((theme) => ({
   appBarSpacer: theme.mixins.toolbar,
   content: {
     flexGrow: 1,
-    height: "100vh",
-    overflow: "auto",
+    height: '100vh',
+    overflow: 'auto',
   },
   container: {
     paddingTop: theme.spacing(4),
@@ -26,9 +26,9 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     padding: theme.spacing(2),
-    display: "flex",
-    overflow: "auto",
-    flexDirection: "column",
+    display: 'flex',
+    overflow: 'auto',
+    flexDirection: 'column',
   },
   fixedHeight: {
     height: 200,
@@ -42,11 +42,11 @@ export default function Dashboard() {
 
   return (
     <div className={classes.root}>
-      <AppBar heading="Dashboard" />
+      <AppBar heading='Dashboard' />
 
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
-        <Container maxWidth="lg" className={classes.container}>
+        <Container maxWidth='lg' className={classes.container}>
           <Grid container spacing={2}>
             {/* Summary */}
             <Grid item xs={12} md={4} lg={3}>
@@ -57,7 +57,7 @@ export default function Dashboard() {
             {/* Recent Invoice */}
             <Grid item xs={12}>
               <Paper className={classes.paper}>
-                <Invoice />
+                <Invoice heading='Recent Invoice' />
               </Paper>
             </Grid>
           </Grid>

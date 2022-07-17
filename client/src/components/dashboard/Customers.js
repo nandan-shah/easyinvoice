@@ -14,16 +14,16 @@ import Delete from '@material-ui/icons/DeleteForever';
 import Title from './Title';
 
 // Generate Order Data
-function createData(id, date, client, dueDate, amount, status) {
-  return { id, date, client, dueDate, amount, status };
+function createData(id, client, Email, Address) {
+  return { id, client, Email, Address };
 }
 
 const rows = [
-  createData(0, '16 Mar, 2019', 'Iron man', 'in 10 days', 312.44, 'Unpaid'),
-  createData(1, '19 May, 2019', 'Amit KUmar', 'in 2 days', 662.44, 'Unpaid'),
-  createData(2, '19 May, 2019', 'Amit KUmar', 'in 2 days', 662.44, 'Unpaid'),
-  createData(3, '19 May, 2019', 'Amit KUmar', 'in 2 days', 662.44, 'Unpaid'),
-  createData(4, '15 Mar, 2019', 'Amit KUmar', 'in 2 days', 662.44, 'Unpaid'),
+  createData(1, 'Iron man', 'new@mail.com', 312.44),
+  createData(2, 'Amit KUmar', 'new@mail.com', 662.44),
+  createData(3, 'Amit KUmar', 'new@mail.com', 662.44),
+  createData(4, 'Amit KUmar', 'new@mail.com', 662.44),
+  createData(5, 'Amit KUmar', 'new@mail.com', 662.44),
 ];
 
 function preventDefault(event) {
@@ -36,20 +36,18 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Invoice({ heading }) {
+export default function Invoice() {
   const classes = useStyles();
   return (
     <Fragment>
-      <Title>{heading}</Title>
+      <Title>Customers</Title>
       <Table size='small'>
         <TableHead>
           <TableRow>
             <TableCell>Id</TableCell>
-            <TableCell>Date</TableCell>
             <TableCell>Client</TableCell>
-            <TableCell>Due date</TableCell>
-            <TableCell>Amount</TableCell>
-            <TableCell>Status</TableCell>
+            <TableCell>Email</TableCell>
+            <TableCell>Address</TableCell>
             <TableCell align='center'>Edit</TableCell>
             <TableCell align='center'>Delete</TableCell>
           </TableRow>
@@ -58,11 +56,9 @@ export default function Invoice({ heading }) {
           {rows.map((row) => (
             <TableRow key={row.id}>
               <TableCell>{row.id}</TableCell>
-              <TableCell>{row.date}</TableCell>
               <TableCell>{row.client}</TableCell>
-              <TableCell>{row.dueDate}</TableCell>
-              <TableCell>{row.amount}</TableCell>
-              <TableCell>{row.status}</TableCell>
+              <TableCell>{row.Email}</TableCell>
+              <TableCell>{row.Address}</TableCell>
               <TableCell align='center'>
                 <Edit color='action' />
               </TableCell>
@@ -73,11 +69,11 @@ export default function Invoice({ heading }) {
           ))}
         </TableBody>
       </Table>
-      <div className={classes.seeMore}>
+      {/* <div className={classes.seeMore}>
         <Link color='primary' href='#' onClick={preventDefault}>
-          See more orders
+          See more
         </Link>
-      </div>
+      </div> */}
     </Fragment>
   );
 }

@@ -41,7 +41,7 @@ const InvoiceList = () => {
           {/* Invoices */}
           <Grid item xs={12}>
             <Paper className={classes.paper}>
-              <Invoice />
+              <Invoice heading='Invoices' />
             </Paper>
           </Grid>
           <Box pt={4}>

@@ -43,8 +43,8 @@ export const sideNavItems = (
         <ListItemText primary='Clients' />
       </ListItem>
       <ListItem button>
-        <ListItemIcon></ListItemIcon>
-        <ListItemText primary='Shared with me' />
+        {/* <ListItemIcon></ListItemIcon>
+        <ListItemText primary='Shared with me' /> */}
       </ListItem>
     </div>
     <div>
