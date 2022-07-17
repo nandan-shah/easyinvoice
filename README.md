@@ -12,8 +12,7 @@ EasyInvoice was created using the following technologies.
 - React-router-dom (To handle routing)
 - Axios (for making api calls)
 - Material UI (for User Interface)
-- React-google-login (To enable authentication using Google)
-- React simple Snackbar (To display success/error notifications)
+
 
 #### Backend
 
