@@ -6,6 +6,9 @@ import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import invoiceTemplate from '../../document/invoice.js';
 import config from 'config';
+
+import invoiceEmail from '../../document/invoiceEmail.js';
+
 const router = express.Router();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -22,7 +25,7 @@ router.post('/send', auth, async (req, res) => {
       rejectUnauthorized: false,
     },
     auth: {
-      user: 'easy_invoice@outlook.com',
+      user: `easy_invoice@outlook.com`,
       pass: config.get('PASS'),
     },
   });
@@ -31,7 +34,7 @@ router.post('/send', auth, async (req, res) => {
       from: `easy_invoice@outlook.com`,
       to: `${email}`,
       subject: 'A Invoice ',
-      html: `<h1>html file</h1>`, // html body
+      html: invoiceEmail(), // html body
       attachments: [
         {
           filename: 'invoice.pdf',

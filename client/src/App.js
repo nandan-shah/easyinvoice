@@ -16,6 +16,7 @@ import InvoiceList from './components/dashboard/InvoiceList';
 import CreateInvoice from './components/dashboard/CreateInvoice';
 import ClientList from './components/dashboard/ClientList';
 import Profile from './components/profile/Profile';
+import Invoice from './components/layout/Invoice';
 function App() {
   return (
     <Provider store={store}>
@@ -31,6 +32,7 @@ function App() {
               <Route exact path='/create-invoice' element={<CreateInvoice />} />
               <Route exact path='/clients' element={<ClientList />} />
               <Route exact path='/profile' element={<Profile />} />
+              <Route exact path='/invoice/:id' element={<Invoice />} />
             </Routes>
           </ThemeProvider>
         </Router>

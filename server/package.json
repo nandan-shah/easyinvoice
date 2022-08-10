@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "start": "node server",
-    "server": "nodemon server"
+    "server": "nodemon server",
+    "dev": "concurrently \"cd ../client && npm run start\" \"npm run server\""
   },
   "keywords": [],
   "author": "Nandan",
@@ -26,6 +27,7 @@
     "nodemailer": "^6.7.2"
   },
   "devDependencies": {
+    "concurrently": "^7.3.0",
     "nodemon": "^2.0.15"
   }
 }
