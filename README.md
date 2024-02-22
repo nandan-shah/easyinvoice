@@ -58,8 +58,3 @@ npm start
 ```
 
 ### 6\. ✨ Enjoy
-
-
-## Comment
-We intend to keep adding more features to this application, so if you like it, please give it a star, that will encourage us to 
-to keep improving the project.
