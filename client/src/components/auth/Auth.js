@@ -16,7 +16,10 @@ import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import Navbar from '../layout/Navbar';
 import Copyright from '../layout/Copyright';
-
+import { Navigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { useDispatch, useSelector } from 'react-redux';
+import { register, login } from '../../redux/actions/auth';
 const useStyles = makeStyles((theme) => ({
   box: {
     marginTop: theme.spacing(8),
@@ -31,16 +34,27 @@ export default function Auth() {
   const theme = useTheme();
   const [isRegister, setRegister] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    password: '',
+  });
+  const { name, email, password } = formData;
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    // eslint-disable-next-line no-console
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+  const onChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    console.log(formData);
+  };
+
+  const { isAuth, error, loading = false } = useSelector((state) => state.auth);
+
+  if (isAuth) {
+    return <Navigate to='/dashboard' />;
+  }
 
   return (
     <div>
@@ -51,36 +65,22 @@ export default function Auth() {
           <Typography component='h1' variant='h5'>
             Sign up
           </Typography>
-          <Box
-            component='form'
-            noValidate
-            onSubmit={handleSubmit}
-            sx={{ mt: 3 }}
-          >
+          <Box component='form' noValidate onSubmit={onSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
               {!isRegister && (
                 <>
-                  <Grid item xs={12} sm={6}>
+                  <Grid item xs={12}>
                     <TextField
-                      autoComplete='given-name'
-                      name='firstName'
+                      autoComplete='name'
+                      name='name'
                       required
                       fullWidth
                       variant='outlined'
-                      id='firstName'
-                      label='First Name'
+                      id='name'
+                      label='Name'
                       autoFocus
-                    />
-                  </Grid>
-                  <Grid item xs={12} sm={6}>
-                    <TextField
-                      required
-                      fullWidth
-                      variant='outlined'
-                      id='lastName'
-                      label='Last Name'
-                      name='lastName'
-                      autoComplete='family-name'
+                      value={name}
+                      onChange={(e) => onChange(e)}
                     />
                   </Grid>
                 </>
@@ -94,6 +94,8 @@ export default function Auth() {
                   label='Email Address'
                   name='email'
                   autoComplete='email'
+                  value={email}
+                  onChange={(e) => onChange(e)}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -106,6 +108,8 @@ export default function Auth() {
                   type={showPassword ? 'text' : 'password'}
                   id='password'
                   autoComplete='new-password'
+                  value={password}
+                  onChange={(e) => onChange(e)}
                   InputProps={{
                     endAdornment: (
                       <InputAdornment position='end'>
@@ -153,9 +157,9 @@ export default function Auth() {
             {isRegister && (
               <Grid container>
                 <Grid item xs>
-                  <Link href='#' variant='body2' color='secondary'>
+                  {/* <Link href='#' variant='body2' color='secondary'>
                     Forgot password?
-                  </Link>
+                  </Link> */}
                 </Grid>
                 <Grid item>
                   <Link

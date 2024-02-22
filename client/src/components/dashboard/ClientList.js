@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Box, Container, Grid, Paper } from '@material-ui/core';
-import Invoice from './Invoices';
+import Customers from './Customers';
 import Copyright from '../layout/Copyright';
 import AppBar from './Appbar';
 
@@ -34,15 +34,15 @@ const ClientList = () => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <AppBar />
+      <AppBar heading='Customers' />
 
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth='lg' className={classes.container}>
-          {/* Invoices */}
+          {/* Customers */}
           <Grid item xs={12}>
             <Paper className={classes.paper}>
-              <Invoice />
+              <Customers />
             </Paper>
           </Grid>
 

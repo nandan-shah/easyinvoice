@@ -4,7 +4,7 @@ import { ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import CreateIcon from '@material-ui/icons/Create';
 import PeopleIcon from '@material-ui/icons/People';
-import GroupWorkIcon from '@material-ui/icons/GroupWork';
+
 import LayersIcon from '@material-ui/icons/Layers';
 import SettingsIcon from '@material-ui/icons/Settings';
 
@@ -43,14 +43,12 @@ export const sideNavItems = (
         <ListItemText primary='Clients' />
       </ListItem>
       <ListItem button>
-        <ListItemIcon>
-          <GroupWorkIcon />
-        </ListItemIcon>
-        <ListItemText primary='Shared with me' />
+        {/* <ListItemIcon></ListItemIcon>
+        <ListItemText primary='Shared with me' /> */}
       </ListItem>
     </div>
     <div>
-      <ListItem button component='a' href='/settings'>
+      <ListItem button component='a' href='/profile'>
         <ListItemIcon>
           <SettingsIcon />
         </ListItemIcon>

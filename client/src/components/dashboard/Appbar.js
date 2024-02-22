@@ -81,7 +81,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Appbar = () => {
+const Appbar = (props) => {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const handleDrawerOpen = () => {
@@ -126,7 +126,7 @@ const Appbar = () => {
             noWrap
             className={classes.title}
           >
-            Dashboard
+            {props.heading}
           </Typography>
 
           {/* menu */}
@@ -140,7 +140,9 @@ const Appbar = () => {
               open={menuOpen}
               onClose={handleClose}
             >
-              <MenuItem onClick={handleClose}>Profile</MenuItem>
+              <MenuItem onClick={handleClose} href='/profile'>
+                Profile
+              </MenuItem>
               <MenuItem onClick={handleClose}>Logout</MenuItem>
             </Menu>
           </div>
