@@ -63,7 +63,3 @@ npm start
 ## Comment
 We intend to keep adding more features to this application, so if you like it, please give it a star, that will encourage us to 
 to keep improving the project.
-
-## Author
-- [Nandan Kumar](https://github.com/nandan-shah)
-- [Sugyanee Sahu](https://github.com/Sugyanee)
